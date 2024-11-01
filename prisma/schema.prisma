@@ -19,12 +19,15 @@ model User {
   id           String    @id
   username     String    @unique
   displayName  String
+
   email        String?   @unique
   passwordHash String?
   googleId     String?   @unique
   avatarUrl    String?
   bio          String?
-  sessions      Session[]
+  sessions     Session[]
+  Post         Post[]
+  
   createdAt    DateTime  @default(now())
 
   @@map("users")
@@ -37,4 +40,14 @@ model Session {
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("sessions")
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  content   String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@map("posts")
 }
