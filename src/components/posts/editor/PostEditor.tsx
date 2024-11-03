@@ -4,7 +4,6 @@ import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Placeholder from "@tiptap/extension-placeholder";
 import React from "react";
-import { submitPost } from "./action";
 import UserAvatar from "@/components/UserAvatar";
 import LoadingButton from "@/components/LoadingButton";
 import { useSession } from "@/components/SessionProvider";
